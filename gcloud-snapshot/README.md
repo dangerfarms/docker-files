@@ -48,7 +48,7 @@ spec:
           - name: DISK_NAME
             value: disk1
           - name: ZONE
-            value: europe-west-1b
+            value: europe-west1-b
           volumeMounts:
           - name: key
             mountPath: "/key/key.json"
