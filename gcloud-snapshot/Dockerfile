@@ -1,3 +1,3 @@
 FROM google/cloud-sdk:alpine
-COPY snap.sh /etc/periodic/daily/snap.sh
+COPY snap /etc/periodic/daily/snap
 RUN cat
