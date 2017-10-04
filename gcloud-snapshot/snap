@@ -1,5 +1,6 @@
 #!/bin/sh
 set -xe
+snapshot_name=${SNAPSHOT_NAME:-$DISK_NAME}
 gcloud auth activate-service-account --key-file /key/key.json
 gcloud config set project $PROJECT_NAME
-gcloud compute disks snapshot $DISK_NAME --zone=$ZONE --snapshot-names="$DISK_NAME-$(date +'%Y-%m-%d-%H-%M-%S')"
+gcloud compute disks snapshot $DISK_NAME --zone=$ZONE --snapshot-names="$snapshot_name-$(date +'%Y-%m-%d-%H-%M-%S')"
