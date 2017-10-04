@@ -9,7 +9,8 @@ Create a service account with a custom role that allows only creating snapshots 
 Environment variables:  
 `PROJECT_NAME`  
 `ZONE`  
-`DISK_NAME`
+`DISK_NAME`  
+`SNAPSHOT_NAME` (Optional, defaults to `DISK_NAME`, date automatically appended)
 
 You also need to mount the key JSON file for the service account to `/key/key.json`.
 
@@ -47,6 +48,8 @@ spec:
             value: myproject
           - name: DISK_NAME
             value: disk1
+          - name: SNAPSHOT_NAME # Optional, defaults to DISK_NAME, date automatically appended
+            value: disk1-snapshot
           - name: ZONE
             value: europe-west1-b
           volumeMounts:
