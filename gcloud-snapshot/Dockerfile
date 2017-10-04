@@ -1,3 +1,3 @@
 FROM google/cloud-sdk:alpine
 COPY snap /etc/periodic/daily/snap
-RUN cat
+CMD crond -l 2 -f
