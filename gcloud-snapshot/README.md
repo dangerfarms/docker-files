@@ -51,7 +51,7 @@ spec:
             value: europe-west1-b
           volumeMounts:
           - name: key
-            mountPath: "/key/key.json"
+            mountPath: "/key"
             readOnly: true
       volumes:
       - name: key
