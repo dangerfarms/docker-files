@@ -1,6 +1,6 @@
 # gcloud-snapshot
 
-Create a snapshot of a gcloud persistent disk every day.
+Create a snapshot of gcloud persistent disks every day.
 
 # Usage
 
@@ -9,8 +9,7 @@ Create a service account with a custom role that allows only creating snapshots 
 Environment variables:  
 `PROJECT_NAME`  
 `ZONE`  
-`DISK_NAME`  
-`SNAPSHOT_NAME` (Optional, defaults to `DISK_NAME`, date automatically appended)
+`EXCLUDE_DISKS` (gcloud expression) if the disk name matches, it will not be backed up.
 
 You also need to mount the key JSON file for the service account to `/key/key.json`.
 
@@ -46,10 +45,8 @@ spec:
           env:
           - name: PROJECT_NAME
             value: myproject
-          - name: DISK_NAME
-            value: disk1
-          - name: SNAPSHOT_NAME # Optional, defaults to DISK_NAME, date automatically appended
-            value: disk1-snapshot
+          - name: EXCLUDE_DISKS
+            value: gke-cluster-default-pool-xxxxxxx # won't back up any nodes' disks
           - name: ZONE
             value: europe-west1-b
           volumeMounts:
