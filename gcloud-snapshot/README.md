@@ -27,7 +27,7 @@ Then use something like this deployment:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: snapshot-disk1
+  name: snapshot-disks
 spec:
   replicas: 1
   strategy:
@@ -35,10 +35,10 @@ spec:
   template:
     metadata:
       labels:
-        app: snapshot-disk1
+        app: snapshot-disks
     spec:
       containers:
-        - name: snapshot-disk1
+        - name: snapshot-disks
           image: dangerfarms/gcloud-snapshot
           tty: true
           imagePullPolicy: Always
@@ -56,7 +56,7 @@ spec:
       volumes:
       - name: key
         secret:
-          secretName: df-gcloud-snapshot
+          secretName: gcloud-snapshot
 
       restartPolicy: Always
 ```
